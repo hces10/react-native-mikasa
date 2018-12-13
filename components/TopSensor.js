@@ -11,7 +11,7 @@ export default class TopSensor extends Component {
 			<View style={styles.fundoComponente}>
 				<View style={styles.nomeSensor}>
 						
-						<Text>COLOCAR NOME DO SENSOR
+						<Text style={styles.textoTop}>JANELA
 						</Text>
 					
 				</View>
@@ -57,6 +57,12 @@ const styles = StyleSheet.create({
 		borderColor: 'grey',
 		marginLeft: 4,
 		marginRight: 2
-	}
+	},
+    textoTop: {
+		fontSize: 15,
+		color: 'blue',
+		fontWeight: 'bold',
+		textAlign: 'center'
+    }
 });
 

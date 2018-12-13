@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Image } from 'react-native';
 
 
 export default class MidSensor extends Component {
@@ -11,11 +11,11 @@ export default class MidSensor extends Component {
 			<View style={styles.fundoComponente}>
 				<View style={styles.saida}>
 						<View style={styles.viewNomeSensor}>
-							<Text>COLOCAR NOME DO SENSOR</Text>
+							<Text style={styles.textoMid}>JANELA</Text>
 						</View>
 						
 						<View style={styles.viewEstado}>
-							<Text>COLOCAR ICONE LIGAR/DESLIGAR</Text>
+							<Image source={require('../img/IconeRed.jpg')} style={{ width: 200, height: 100 }} />
 						</View>
 					
 				</View>
@@ -57,6 +57,13 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		flex: 1
-	}
+	},
+	textoMid: {
+		fontSize: 50,
+		color: 'blue',
+		fontWeight: 'bold',
+		textAlign: 'center',
+		fontFamily: 'sans-serif'
+    }
 });
 
