@@ -10,9 +10,8 @@ export default class Automatizar extends Component {
 
 				<View style={styles.fundoComponente}>
 				
-
 					<ModalTester />
-
+				
 				</View>	
 
 			</View>

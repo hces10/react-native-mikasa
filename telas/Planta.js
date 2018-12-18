@@ -55,7 +55,7 @@ export default class Planta extends Component {
                   </TouchableOpacity>
                 </View>
                 <View nativeID='CameraSaida' style={{ alignItems: 'flex-end', justifyContent: 'flex-end', flex: 1, paddingLeft: 15 }}>
-                  <TouchableOpacity style={{ width: 35 }} onPress={() => this.props.navigation.navigate('Stream')}>
+                  <TouchableOpacity style={{ width: 35 }} onPress={() => this.props.navigation.navigate('Automatize')}>
                     <Image source={require('../img/iconCamera.png')} style={{ width: 35, height: 30 }} />
                   </TouchableOpacity>
                 </View>

@@ -6,6 +6,7 @@ import { createStackNavigator } from 'react-navigation';
 import Principal from './telas/Principal.js';
 import Planta from './telas/Planta.js';
 import Camera from './telas/Camera.js';
+import Programar from './telas/Programar.js';
 
 class LogoTitle extends Component {
   render() {
@@ -22,7 +23,8 @@ const RootStack = createStackNavigator(
   {
     Home: Planta,
     Details: Principal,
-    Stream: Camera
+    Stream: Camera,
+    Automatize: Programar
   },
   {
     initialRouteName: 'Home',
