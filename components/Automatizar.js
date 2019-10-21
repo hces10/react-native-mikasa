@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
-
-import ModalTester from './ModalAutomatizar.js';
+import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
 
 export default class Automatizar extends Component {
 	render() {
 		return (
 			<View style={styles.fundo}>	
-
-				<View style={styles.fundoComponente}>
-				
-					<ModalTester />
-				
-				</View>	
-
+        
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate('Automatize')}
+          style={styles.botao}
+        >
+          <Text style={styles.textoBotao}>Automatizar</Text>
+        </TouchableOpacity>
 			</View>
 		);
 	}
@@ -26,7 +24,22 @@ const styles = StyleSheet.create({
 	},	
 	fundoComponente: {
 		flex: 1
-	}
+  },
+  botao: {
+    flex: 1,
+    borderRadius: 15,
+    backgroundColor: '#538530',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 5,
+    margin: 5
+  },
+  textoBotao: {
+    fontSize: 25,
+    color: '#FFF',
+    fontWeight: 'bold',
+    textAlign: 'center'
+  }
 	
 });
 

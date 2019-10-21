@@ -1,22 +1,11 @@
 import React, { Component } from 'react';
-import { Image, View } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
-
+import LogoTitle from './components/LogoTitle.js';
 import Principal from './telas/Principal.js';
 import Planta from './telas/Planta.js';
 import Camera from './telas/Camera.js';
 import Programar from './telas/Programar.js';
-
-class LogoTitle extends Component {
-  render() {
-    return (
-      <View style={{ alignItems: 'flex-end', flex: 1 }}>
-        <Image source={require('./img/logo.jpg')} style={{ width: 150, height: '100%' }} />
-      </View>
-    );
-  }
-}
 
 
 const RootStack = createStackNavigator(
@@ -24,7 +13,7 @@ const RootStack = createStackNavigator(
     Home: Planta,
     Details: Principal,
     Stream: Camera,
-    Automatize: Programar
+    Automatize: Programar,
   },
   {
     initialRouteName: 'Home',

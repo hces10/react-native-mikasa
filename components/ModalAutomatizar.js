@@ -13,9 +13,7 @@ export default class ModalTester extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <TouchableOpacity onPress={this.toggleModal} style={styles.botao}>
-            <Text style={styles.textoBotao}>Automatizar</Text>
-          </TouchableOpacity>
+
         <Modal 
           isVisible={this.state.isModalVisible}
           onBackdropPress={() => this.setState({ isModalVisible: false })}
@@ -28,7 +26,10 @@ export default class ModalTester extends Component {
             <Picker
               selectedValue={this.state.language}
               style={{ height: 50, width: '100%' }}
-              onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
+              onValueChange={(itemValue, itemIndex) =>
+                this.setState({ language: itemValue, itemIndex })
+              }
+            >
               <Picker.Item label='Data e Hora' value='DeH' />
               <Picker.Item label="Sensor de Temperatura" value="sTemp" />
               <Picker.Item label="Sensor de Chuva" value="sChuv" />
@@ -68,19 +69,5 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     borderColor: 'rgba(0, 0, 0, 0.1)'
   },
-  textoBotao: {
-    fontSize: 25,
-    color: '#FFF',
-    fontWeight: 'bold',
-    textAlign: 'center'
-  },
-  botao: {
-    flex: 1,
-    borderRadius: 15,
-    backgroundColor: '#538530',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 5,
-    margin: 5
-  }
+
 });

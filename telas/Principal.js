@@ -13,10 +13,9 @@ export default class Principal extends Component {
     return (
       <View style={{ flex: 1, backgroundColor: 'blue' }}>
         <TopSensor />
-        <Automatizar />
+        <Automatizar navigation={this.props.navigation} />
         <MidSensor />
         <BotSensor />
-        
       </View>
     );
   }
