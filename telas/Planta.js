@@ -2,14 +2,10 @@
 /* eslint-disable max-len */
 import React, { Component } from 'react';
 import { ImageBackground, View, TouchableOpacity, Image } from 'react-native';
-import Orientation from 'react-native-orientation-locker';
 
 
 export default class Planta extends Component {
 
-  componentDidMount() { 
-    Orientation.lockToPortrait();
-  }
 
   render() {
     return (

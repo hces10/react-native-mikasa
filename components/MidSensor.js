@@ -3,6 +3,31 @@ import { Text, View, StyleSheet, Image } from 'react-native';
 
 
 export default class MidSensor extends Component {
+  state = { response: {} }
+
+  componentWillMount() {
+    this.getState();
+  }
+
+  getState = () => {
+    const axios = require('axios');
+
+    // Make a request for a user with a given ID
+    axios.get('http://177.193.46.190:8082')
+      .then((response) => {
+        // handle success
+        console.log(response);
+        this.setState({ response });
+      })
+      .catch((error) => {
+        // handle error
+        this.setState({ error });
+        console.log(error);
+      })
+      .finally(() => {
+        // always executed
+      });
+  }
 
 	render() {
 		return (
@@ -11,7 +36,7 @@ export default class MidSensor extends Component {
 			<View style={styles.fundoComponente}>
 				<View style={styles.saida}>
 						<View style={styles.viewNomeSensor}>
-							<Text style={styles.textoMid}>JANELA</Text>
+							<Text style={styles.textoMid}>{this.state.response.data}</Text>
 						</View>
 						
 						<View style={styles.viewEstado}>
