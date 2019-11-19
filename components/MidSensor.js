@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
 		flex: 1
 	},
 	textoMid: {
-		fontSize: 50,
+		fontSize: 5,
 		color: 'blue',
 		fontWeight: 'bold',
 		textAlign: 'center',
