@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createAppContainer } from 'react-navigation';
 
 import LogoTitle from './components/LogoTitle.js';
 import Principal from './telas/Principal.js';
 import Planta from './telas/Planta.js';
 import Camera from './telas/Camera.js';
 import Programar from './telas/Programar.js';
-
 
 const RootStack = createStackNavigator(
   {
@@ -20,14 +20,16 @@ const RootStack = createStackNavigator(
     navigationOptions: {
       headerTitle: <LogoTitle />,
       headerStyle: {
-        backgroundColor: 'blue'
-      }
-    }
-  }
+        backgroundColor: 'blue',
+      },
+    },
+  },
 );
+
+const Routers = createAppContainer(RootStack);
 
 export default class App extends Component {
   render() {
-    return <RootStack />;
+    return <Routers />;
   }
 }

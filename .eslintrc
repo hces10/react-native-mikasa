@@ -1,3 +1,129 @@
 {
-"extends": "rallycoding"
+  "env": {
+    "react-native/react-native": true,
+    "es6": true
+  },
+  "parser": "babel-eslint",
+  "plugins": [
+    "react",
+    "react-native",
+    "unicorn"
+  ],
+  "globals": {
+    "fetch": false,
+    "_DEV_": false,
+    "FormData": false,
+    "requestAnimationFrame": false
+  },
+  "rules": {
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": [
+          "_root",
+          "_class",
+          "_handlePressReadLess",
+          "_handlePressReadMore"
+        ]
+      }
+    ],
+    "function-paren-newline": 0,
+    "lines-between-class-members": 0,
+    "unicorn/explicit-length-check": 0,
+    "unicorn/filename-case": 0,
+    "unicorn/new-for-builtins": 0,
+    "unicorn/no-unused-properties": 0,
+    "unicorn/no-abusive-eslint-disable": "off",
+    "unicorn/prefer-spread": "off",
+    "unicorn/prefer-type-error": 0,
+    "react/prop-types": "off",
+    "react-native/no-inline-styles": "off",
+    "react/no-deprecated": "off",
+    "react-native/sort-styles": "off",
+    "react-native/no-raw-text": "off",
+    "no-console": "off",
+    "unicorn/catch-error-name": "off",
+    "no-useless-escape": "off",
+    "no-duplicate-imports": "error",
+    "no-async-promise-executor": "off",
+    "no-empty-function": "error",
+    "no-empty-pattern": "error",
+    "react/no-unescaped-entities": "off",
+    "react/no-string-refs": "off",
+    "react/jsx-indent": [
+      "error",
+      2
+    ],
+    "comma-spacing": "error",
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "ignore"
+      }
+    ],
+    "prefer-destructuring": [
+      "error",
+      {
+        "array": true,
+        "object": true
+      },
+      {
+        "enforceForRenamedProperties": false
+      }
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always",
+      {
+        "objectsInObjects": false
+      }
+    ],
+    "no-trailing-spaces": [
+      "error"
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 155,
+        "tabWidth": 2
+      }
+    ],
+    "eol-last": [
+      "error"
+    ],
+    "jsx-quotes": [
+      "error",
+      "prefer-single"
+    ],
+    "prefer-const": "error",
+    "no-var": "error",
+    "no-extra-semi": "error",
+    "semi": [
+      "error",
+      "always"
+    ],
+    "react/display-name": "off",
+    "react/jsx-key": "off",
+    "react/jsx-curly-brace-presence": ["error"]
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "modules": true,
+      "spread": true,
+      "restParams": true,
+      "jsx": true
+    }
+  },
+  "extends": [
+    "plugin:react-native/all",
+    "plugin:react/recommended",
+    "plugin:unicorn/recommended",
+    "eslint:recommended"
+  ]
 }
