@@ -5,7 +5,9 @@ import { ImageBackground, View, TouchableOpacity, Image } from 'react-native';
 
 
 export default class Planta extends Component {
+  state = { LED: '' }
 
+  onClick = LED => this.setState({ LED }, () => this.props.navigation.navigate('Details', this.state));
 
   render() {
     return (
@@ -33,14 +35,14 @@ export default class Planta extends Component {
             <View nativeID='InnColQuarto' style={{ flex: 2.8 }}>
               <View nativeID='InnQuarto1' style={{ flex: 3 }}>
                 <View nativeID='JanelaSaida' style={{ alignItems: 'flex-end', justifyContent: 'center', flex: 1, paddingTop: 10 }}>
-                  <TouchableOpacity style={{ width: 35 }} onPress={() => this.props.navigation.navigate('Details')}>
+                  <TouchableOpacity style={{ width: 35 }} onPress={() => this.onClick('1')}>
                     <Image source={require('../img/iconJanela.jpg')} style={{ width: 35, height: 30 }} />
                   </TouchableOpacity>
                 </View>
               </View>
               <View nativeID='InnQuarto2' style={{ flex: 3.7 }}>
                 <View nativeID='JanelaSaida' style={{ alignItems: 'flex-end', justifyContent: 'center', flex: 1, paddingTop: 10 }}>
-                  <TouchableOpacity style={{ width: 35 }} onPress={() => this.props.navigation.navigate('Details')}>
+                  <TouchableOpacity style={{ width: 35 }} onPress={() => this.onClick('2')}>
                     <Image source={require('../img/iconJanela.jpg')} style={{ width: 35, height: 30 }} />
                   </TouchableOpacity>
                 </View>
@@ -48,7 +50,7 @@ export default class Planta extends Component {
               <View nativeID='InnBanheiro' style={{ flex: 2.1, backgroundColor: '' }} />
               <View nativeID='InnQuarto3' style={{ flex: 3.2, flexDirection: 'row' }}>
                 <View nativeID='JanelaSaida' style={{ alignItems: 'flex-end', justifyContent: 'flex-end', flex: 1 }}>
-                  <TouchableOpacity style={{ width: 35 }} onPress={() => this.props.navigation.navigate('Details')}>
+                  <TouchableOpacity style={{ width: 35 }} onPress={() => this.onClick('3')}>
                     <Image source={require('../img/iconJanela.jpg')} style={{ width: 35, height: 30 }} />
                   </TouchableOpacity>
                 </View>
