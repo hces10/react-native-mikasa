@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
 
 export default class Automatizar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { name: this.props.name };
+  }
+  
 	render() {
 		return (
 			<View style={styles.fundo}>	
         
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('Automatize')}
+          onPress={() => this.props.navigation.navigate('Automatize', this.state)}
           style={styles.botao}
         >
           <Text style={styles.textoBotao}>Automatizar</Text>

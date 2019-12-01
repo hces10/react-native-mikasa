@@ -3,25 +3,53 @@ import { Text, View, StyleSheet } from 'react-native';
 
 
 export default class BotSensor extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { response: {}, sensor: '' };
+  }
+
+  componentDidMount() {
+    this.getState();
+  }
+
+  getState = () => {
+    const axios = require('axios');
+    const { LED } = this.state;
+    // Make a request for a user with a given ID
+    axios.get('http://177.193.46.190:8082')
+      .then((response) => {
+        // handle success
+        const isUp = response.data.split(',');
+        this.setState({ sensor: isUp[3] });
+      })
+      .catch((error) => {
+        // handle error
+        this.setState({ error });
+        console.log(error);
+      })
+      .finally(() => {
+        // always executed
+	    });
+  }
 
 	render() {
 		return (
 			<View style={styles.fundo}>	
 			<View style={styles.fundoComponente}>
-				<View style={styles.nomeSensor}>
-					<View style={{ alignItems: 'flex-start', flex: 7, paddingLeft: 20 }}>
-						<Text style={styles.textoBot}>Sensor de Chuva</Text>
+				<View style={styles.dataHora}>
+					<View style={{ alignItems: 'center', flex: 7 }}>
+						<Text style={styles.textoBot}>Sensor de Luz</Text>
 					</View>
 					<View style={{ alignItems: 'center', flex: 3 }}>
-						<Text style={{ fontSize: 30, color: 'yellow' }}>ON</Text>
+						<Text style={{ fontSize: 30, color: 'darkblue' }}>{this.state.sensor}</Text>
 					</View>
 				</View>
 				<View style={styles.dataHora}>
-					<View style={{ alignItems: 'flex-start', flex: 7 }}>
+					<View style={{ alignItems: 'center', flex: 7 }}>
 						<Text style={styles.textoBot}>Sensor de Temperatura</Text>
 					</View>
 					<View style={{ alignItems: 'center', flex: 3 }}>
-						<Text style={{ fontSize: 30, color: 'yellow' }}>30°C</Text>
+						<Text style={{ fontSize: 30, color: 'darkblue' }}>30°C</Text>
 					</View>
 				</View>
 			</View>	
@@ -67,7 +95,7 @@ const styles = StyleSheet.create({
 	},
     textoBot: {
 		fontSize: 25,
-		color: '#FFF',
+		color: 'darkblue',
 		fontWeight: 'bold',
 		textAlign: 'center'
     }

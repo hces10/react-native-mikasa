@@ -8,7 +8,7 @@ export default class Programar extends Component {
   render() {
     return (
       <View>
-        <TopoAuto />
+        <TopoAuto name={this.props.navigation.state.params.name} />
         <Regras />
       </View>
     );

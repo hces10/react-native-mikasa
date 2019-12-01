@@ -3,24 +3,32 @@ import { Text, View, StyleSheet } from 'react-native';
 
 
 export default class TopSensor extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { date: '' };
+  }
+
+  componentDidMount() {
+    var that = this;
+    var date = new Date().getDate();
+    var month = new Date().getMonth() + 1;
+    var year = new Date().getFullYear();
+    var hours = new Date().getHours();
+    var min = new Date().getMinutes();
+    that.setState({ date: date + '/' + month + '/' + year + '  ' + hours + ':' + min });
+  }
 
 	render() {
 		return (
 			<View style={styles.fundo}>	
-
-			<View style={styles.fundoComponente}>
-				<View style={styles.nomeSensor}>
-						
-						<Text style={styles.textoTop}>JANELA
-						</Text>
-					
-				</View>
-				<View style={styles.dataHora}>
-					<Text>COLOCAR DATA E HORA
-						</Text>
-				</View>
-
-			</View>	
+        <View style={styles.fundoComponente}>
+          <View style={styles.nomeSensor}>
+            <Text style={styles.textoTop}>{this.props.name}</Text>
+          </View>
+          <View style={styles.dataHora}>
+            <Text style={styles.textoHora}>{this.state.date}</Text>
+          </View>
+        </View>	
 			</View>
 		);
 	}
@@ -28,7 +36,7 @@ export default class TopSensor extends Component {
 
 const styles = StyleSheet.create({
 	fundo: {
-		flex: 1.5// nao consigo usar flex e flexdirection no view total
+		flex: 1.5
 	},	
 	fundoComponente: {
 		flex: 1,
@@ -39,7 +47,6 @@ const styles = StyleSheet.create({
 		backgroundColor: 'lightgrey',
 		flex: 7,
 		borderRadius: 20,
-		
 		borderWidth: 3,
 		borderColor: 'grey',
 		justifyContent: 'center',
@@ -58,11 +65,15 @@ const styles = StyleSheet.create({
 		marginLeft: 4,
 		marginRight: 2
 	},
-    textoTop: {
+  textoTop: {
 		fontSize: 15,
 		color: 'blue',
 		fontWeight: 'bold',
 		textAlign: 'center'
-    }
+  },
+  textoHora: {
+		fontSize: 15,
+		textAlign: 'center',
+  },
 });
 

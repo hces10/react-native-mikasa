@@ -10,12 +10,13 @@ import BotSensor from '../components/BotSensor.js';
 //tela após tocar no sensor
 export default class Principal extends Component {
   render() {
+    const { params } = this.props.navigation.state;
     return (
       <View style={{ flex: 1, backgroundColor: 'blue' }}>
-        <TopSensor />
+        <TopSensor name={params.name} />
         {console.log('state', this.props.navigation.state.params)}
-        <Automatizar navigation={this.props.navigation} />
-        <MidSensor LED={this.props.navigation.state.params.LED} />
+        <Automatizar name={params.name} navigation={this.props.navigation} />
+        <MidSensor LED={params.LED} name={params.name} />
         <BotSensor />
       </View>
     );

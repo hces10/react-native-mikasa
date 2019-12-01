@@ -7,7 +7,7 @@ import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 export default class MidSensor extends Component {
   state = { response: {}, state: true, isUp: [], LED: this.props.LED }
 
-  componentWillMount() {
+  componentDidMount() {
     this.getState();
   }
 
@@ -70,11 +70,7 @@ export default class MidSensor extends Component {
         <View style={styles.fundoComponente}>
           <View style={styles.saida}>
             <View style={styles.viewNomeSensor}>
-              <Text style={styles.textoMid}>{this.state.response.data}</Text>
-              <Text style={styles.textoMid}>{this.state.LED}</Text>
-              <Text style={styles.textoMid}>{this.state.isUp[0]}</Text>
-              <Text style={styles.textoMid}>{this.state.isUp[1]}</Text>
-              <Text style={styles.textoMid}>{this.state.isUp[2]}</Text>
+              <Text style={styles.textoMid}>{this.props.name}</Text>
             </View>
             <TouchableOpacity
               style={styles.viewEstado}
@@ -125,10 +121,10 @@ const styles = StyleSheet.create({
 		flex: 1
 	},
 	textoMid: {
-		fontSize: 15,
+		fontSize: 35,
 		color: 'blue',
 		fontWeight: 'bold',
 		textAlign: 'center',
 		fontFamily: 'sans-serif'
-    }
+  }
 });
